@@ -11,14 +11,12 @@ public class MessageRenderer {
 	}
 	
 	public void render(){
-		System.out.println(messageProvider.getMesggage());
+		System.out.println(messageProvider.getMessage());
 	}
 	
 	public static void main(String[] args){
 		ApplicationContext ac = new ClassPathXmlApplicationContext("di.xml");
-		MessageRenderer renderer = (MessageRenderer)(ac.getBean("messageRenderer"));
-		
+		MessageRenderer renderer = (MessageRenderer)ac.getBean("messageRenderer");
 		renderer.render();
-		
 	}
 }

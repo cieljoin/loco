@@ -3,7 +3,7 @@ package net.loco.di;
 public class HelloWorldMessageProvider implements MessageProvider {
 
 	@Override
-	public String getMesggage() {
+	public String getMessage() {
 		return "Hello World!";
 	}
 
