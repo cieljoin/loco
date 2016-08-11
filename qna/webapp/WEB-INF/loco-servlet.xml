@@ -8,12 +8,27 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:component-scan base-package="net.loco.web"/>
+	<context:component-scan base-package="net.loco.bootstrap.web"/>
+	
 	
 	<mvc:annotation-driven />
+	
+	<mvc:resources location="/img/" mapping="img/**" />
+	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/js/" mapping="/js/**" />
+	<mvc:resources location="/fonts/" mapping="/fonts/**" />
 	
 	<mvc:resources location="/images/" mapping="/images/**" />
 	<mvc:resources location="/stylesheets/" mapping="/stylesheets/**" />
 	<mvc:resources location="/javascripts/" mapping="/javascripts/**" />
+	
+	<mvc:resources location="/bootstrap/css/" mapping="/bootstrap/css/**" />
+	<mvc:resources location="/bootstrap/img/" mapping="/bootstrap/img/**" />
+	<mvc:resources location="/bootstrap/js/" mapping="/bootstrap/js/**" />
+	<mvc:resources location="/bootstrap/less/" mapping="/bootstrap/less/**" />
+	<mvc:resources location="/bootstrap/mail/" mapping="/bootstrap/mail/**" />
+	<mvc:resources location="/bootstrap/vendor/" mapping="/bootstrap/vendor/**" />
+	
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/jsp/"	p:suffix=".jsp" />
