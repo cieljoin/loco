@@ -17,7 +17,6 @@
 	/>
 	
 	<bean id="userDao" class="net.loco.dao.users.UserDao" 
-		p:dataSource-ref="dataSource"
-	/>
+		p:dataSource-ref="dataSource" />
 
 </beans>

@@ -30,6 +30,12 @@
 	<mvc:resources location="/bootstrap/vendor/" mapping="/bootstrap/vendor/**" />
 	
 	
+	<mvc:resources location="/bootstrap/login/css/" mapping="/bootstrap/login/css/**" />
+	<mvc:resources location="/bootstrap/login/img/" mapping="/bootstrap/login/img/**" />
+	<mvc:resources location="/bootstrap/login/js/" mapping="/bootstrap/login/js/**" />
+	<mvc:resources location="/bootstrap/login/less/" mapping="/bootstrap/login/less/**" />
+	
+	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/jsp/"	p:suffix=".jsp" />
 

@@ -35,15 +35,18 @@ public class UserDao extends JdbcDaoSupport{
 							rs.getString("userId"),
 							rs.getString("password"),
 							rs.getString("name"),
-							rs.getString("email"));
+							rs.getString("email"),
+							rs.getString("phone"),
+							rs.getString("message")
+						);
 			}
 		};
 		return getJdbcTemplate().queryForObject(sql, rowMapper, userId);
 	}
 
 	public void create(User user) {
-		String sql = "insert into USERS values (?, ?, ?, ?)";
-		getJdbcTemplate().update(sql, user.getUserId(), user.getPassword(), user.getName(), user.getEmail());
+		String sql = "insert into USERS (userId, password, name, email, phone, message) values (?, ?, ?, ?, ?, ?)";
+		getJdbcTemplate().update(sql, user.getUserId(), user.getPassword(), user.getName(), user.getEmail(), user.getPhone(), user.getMessage() );
 	}
 
 }

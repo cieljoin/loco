@@ -11,6 +11,8 @@ $(function() {
             event.preventDefault();
             
             // get values from FORM
+            var userId = $("input#id").val();
+            var password = $("input#password").val();
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
@@ -21,9 +23,11 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "/bootstrap/create.do",
                 type: "POST",
                 data: {
+                	userId: userId,
+                    password: password,
                     name: name,
                     phone: phone,
                     email: email,
