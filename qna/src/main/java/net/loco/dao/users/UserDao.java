@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
@@ -24,10 +25,11 @@ public class UserDao extends JdbcDaoSupport{
 		populator.addScript(new ClassPathResource("loco.sql"));
 		DatabasePopulatorUtils.execute(populator, getDataSource());
 		log.info("database initialized success!");
+		
 	}
 
 	public User findById(String userId) {
-		String sql = "select * from USERS where userId = ?";
+		String sql = "select userId, password, name, email, phone, message from USERS where userId = ?";
 		RowMapper<User> rowMapper = new RowMapper<User>(){
 			@Override
 			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -41,12 +43,22 @@ public class UserDao extends JdbcDaoSupport{
 						);
 			}
 		};
-		return getJdbcTemplate().queryForObject(sql, rowMapper, userId);
+		
+		try{
+			return getJdbcTemplate().queryForObject(sql, rowMapper, userId);
+		}catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 
 	public void create(User user) {
 		String sql = "insert into USERS (userId, password, name, email, phone, message) values (?, ?, ?, ?, ?, ?)";
 		getJdbcTemplate().update(sql, user.getUserId(), user.getPassword(), user.getName(), user.getEmail(), user.getPhone(), user.getMessage() );
+	}
+	
+	public void update(User user){
+		String sql = "update USERS set password=?, name=?, email=?, phone=?, message=? where userId = ?";
+		getJdbcTemplate().update(sql, user.getPassword(), user.getName(), user.getEmail(), user.getPhone(), user.getMessage(), user.getUserId() );
 	}
 
 }

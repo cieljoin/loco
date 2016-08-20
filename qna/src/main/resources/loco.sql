@@ -11,4 +11,4 @@ CREATE TABLE USERS (
 );
 
 
-INSERT INTO USERS VALUES('cieljoin', 'gkswodyd', '한재용', 'cieljoin@gmail.com', '01066636316', 'HI');
+INSERT INTO USERS (userId, password, name, email, phone, message) values ('cieljoin', 'gkswodyd', '한재용', 'cieljoin@gmail.com', '01066636316', 'HI');

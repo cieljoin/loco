@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,24 +28,32 @@
   <body>
 
     <div class="container">
-      <form class="form-signin">
+      <form class="form-signin" action="/bootstrap/loginChk.do" method="post">
         <h2 class="form-signin-heading">로그인</h2>
         <label for="inputUserid" class="sr-only">Email address</label>
-        <input type="text" id="inputUserid" class="form-control" placeholder="ID" required autofocus>
+        <input type="text" id="inputUserid" name="userId" class="form-control" placeholder="ID" required autofocus>
         
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me">기억하기
-          </label>
+			<label>
+				<input type="checkbox" value="remember-me">기억하기
+			</label>
         </div>
+        
+		<c:if test="${not empty errorMessage}">
+		<div class="checkbox">
+			<label>
+            	${errorMessage }
+			</label>
+        </div>
+		</c:if>
+       
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
 
     </div> <!-- /container -->
-
-
+    
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/bootstrap/login/js/ie10-viewport-bug-workaround.js"></script>
   </body>
