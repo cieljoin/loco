@@ -14,12 +14,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.gson.Gson;
-import com.sun.xml.internal.txw2.IllegalAnnotationException;
 
 import net.loco.dao.users.UserDao;
 import net.loco.domain.users.Authenticate;
@@ -83,7 +81,7 @@ public class MainController {
 	public String updateForm(String userId, Model model) {
 		
 		if(userId == null){
-			throw new IllegalAnnotationException("사용자 아이디가 필요합니다.");
+			
 		}
 		
 		User user = userDao.findById(userId);
