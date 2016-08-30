@@ -1,6 +1,8 @@
 package net.loco.domain.users;
 
+import org.apache.ibatis.type.Alias;
 
+@Alias("user")
 public class User {
 	
 	private String userId;

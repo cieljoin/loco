@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 
+	<typeAliases>
+  	<typeAlias alias="User" type="net.loco.domain.users.User"/>
+  </typeAliases>
+   -->
+  <!-- 
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:~/loco"/>
+        <property name="username" value="sa"/>
+        <property name="password" value=""/>
+      </dataSource>
+    </environment>
+  </environments>
+   -->
+  <typeAliases>
+  	<package name="net.loco.domain"/>
+  </typeAliases>
+  <mappers>
+    <mapper resource="net/loco/dao/users/UserMapper.xml"/>
+  </mappers>
+</configuration>

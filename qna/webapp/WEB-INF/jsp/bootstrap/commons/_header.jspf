@@ -22,15 +22,17 @@
                     <li class="page-scroll">
                         <a href="#page-top">CIEL</a>
                     </li>
-                    <!-- <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
-                    </li> -->
                     <li class="page-scroll">
-                        <a href="#contact">방명록</a>
+                        <a href="#portfolio">방명록</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">글쓰기</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">개발환경</a>
                     </li>
+                    
+                    <!-- 
                     <li class="page-scroll">
                         <a href="/bootstrap/join.do">가입</a>
                     </li>
@@ -50,7 +52,7 @@
 	                    </li>
                     </c:otherwise>
                     </c:choose>
-                    
+                    -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

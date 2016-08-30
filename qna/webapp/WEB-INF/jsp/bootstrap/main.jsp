@@ -44,7 +44,7 @@
     </header>
     
     <!-- Portfolio Grid Section -->
-    <!-- <section id="portfolio">
+    <section id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -115,7 +115,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section> 
 
     <!-- Contact Section -->
     <section id="contact">
@@ -128,32 +128,33 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" id="contactForm" novalidate method="post">
+                    <input type="hidden" name = "_method" value="${method }">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="이름을 입력해주세요.">
+                                <label>이름</label>
+                                <input type="text" class="form-control" placeholder="Name" id="name" name="name" value="${user.name }" required data-validation-required-message="이름을 입력해 주세요.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="이메일 주소를 입력해주세요.">
+                                <label>이메일주소</label>
+                                <input type="email" class="form-control" placeholder="Email Address" name="email" value="${user.email }" id="email" required data-validation-required-message="이메일 주소를 입력해주세요.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="핸드폰번호를 입력해주세요.">
+                                <label>핸드폰번호</label>
+                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" name="phone" value="${user.phone }" required data-validation-required-message="핸드폰번호를 입력해주세요.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="남길 메세지를 입력해주세요."></textarea>
+                                <label>내용</label>
+                                <textarea rows="5" class="form-control" placeholder="Message" id="message" name="message" required data-validation-required-message="남길 메세지를 입력해주세요.">${user.message }</textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
