@@ -123,6 +123,29 @@ public class MainController {
 		//return "/bootstrap/guestbook";
 	}
 	
+	@RequestMapping(value="/delete.do", method=RequestMethod.GET)
+	public void delete(User user, HttpSession session, HttpServletRequest req, HttpServletResponse res) throws Exception{
+		Gson gson = new Gson();  // JSON 으로 데이터 편히 만들기위한 Gson
+		Map<String, Object> param = new HashMap<String, Object>(); // return 데이터 저장소
+		
+		String strName = req.getParameter("name");
+		if(strName != null || !"".equals(strName)){
+			user.setName(strName);
+			try{
+				userDao.delete(user);
+				param.put("key", "03");
+			}catch (Exception e) {
+				param.put("key", "01");
+			}
+			
+			String jsonData = gson.toJson(param); // JSON으로 데이터 만들어 줌
+			String output = req.getParameter("callback") + "("+ jsonData +")"; 
+
+			PrintWriter out = res.getWriter(); 
+			out.println(output);
+		}
+	}
+	
 	@RequestMapping(value="/create.do", method=RequestMethod.PUT)
 	public void update(User user, HttpSession session, HttpServletRequest req, HttpServletResponse res) throws Exception{
 		Gson gson = new Gson();  // JSON 으로 데이터 편히 만들기위한 Gson

@@ -35,6 +35,11 @@ public class MyBatisUserDao implements UserDao {
 	}
 	
 	@Override
+	public void delete(User user){
+		sqlSession.delete("UserMapper.delBoard", user);
+	}
+	
+	@Override
 	public List<HashMap<String, String>> selBoardList(){
 		return sqlSession.selectList("UserMapper.selBoardList");
 	}

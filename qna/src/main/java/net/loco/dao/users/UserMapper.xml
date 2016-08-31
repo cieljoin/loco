@@ -24,6 +24,10 @@
   		BOARD
   </select>
   
+  <delete id="delBoard">
+  	DELETE FROM BOARD WHERE NAME = #{name}
+  </delete>
+  
   <update id="update">
   		update USERS set
   			 password=#{password}

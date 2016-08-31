@@ -36,7 +36,7 @@
 	                    
 						</span>
                         <hr class="star-light">
-                        <span class="skills">Web Developer : Han Jae yong</span>
+                        <span class="skills">Web Developer : Han, Jae Yong</span>
                     </div>
                 </div>
             </div>
@@ -52,38 +52,28 @@
                     <hr class="star-primary">
                 </div>
             </div>
-            <div class="row">
-           
+            <div class="row" id="bookDiv">
             	<c:forEach var="board_list" items="${board_list}" varStatus="stats">
-            	 <!-- 
-            <h4 class="panel-title">글쓴이　<small>${board_list.NAME}</small></h4>
-							            <h4 class="panel-title">이메일　<small>${board_list.EMAIL }</small></h4>
-							            <h4 class="panel-title">휴대폰　<small>${board_listPHONE }</small></h4>
-							        </div>
-							        <div class="panel-body">
-							            ${board_list.MESSAGE }
-             -->
-            		<div class="col-md-10 wrap_content"><div class="page-header">
-					    <div class="panel panel-info">
-					        <div class="panel-heading">
-					        	<h4 class="panel-title">
-					        		<small> 글쓴이 : ${board_list.NAME} /이메일 : ${board_list.EMAIL} / 휴대폰 : ${board_list.PHONE }</small>
-					        	</h4>
-					        </div>
-					        <div class="panel-body">
-					            ${board_list.MESSAGE }          
-							</div>
-					    </div>
-					</div>
-					
-					<div class="clearfix">
-					    <div class="pull-right">
-					        <span class="btn-group">
-					        	<a href="/board/test/password/w/d/wr_id/306" class="btn btn-danger">삭제</a>
-			            </div>
-					</div>
+            		<div class="col-md-12 wrap_content">
+	            		<div class="page-header">
+						    <div class="panel panel-info">
+						        <div class="panel-heading">
+						        	<h4 class="panel-title">
+						        		<small> 글쓴이 : ${board_list.NAME} /이메일 : ${board_list.EMAIL} / 휴대폰 : ${board_list.PHONE }</small>
+						        	</h4>
+						        </div>
+						        <div class="panel-body">
+						            ${board_list.MESSAGE }          
+						            <div class="clearfix">
+									    <div class="pull-right">
+									        <span class="btn-group">
+									        	<a href="#//" class="btn btn-danger" name="btnDel" id="${board_list.NAME}">삭제</a>
+							            </div>
+									</div>
+								</div>
+						    </div>
+						</div>
 		        	</div	>
-	                   
             	</c:forEach>
             
             <!-- 
@@ -217,7 +207,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
+                <div class="col-lg-12">
                     <p>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 					  <div class="panel panel-default">
@@ -582,5 +572,35 @@
     <script src="js/freelancer.min.js"></script>
 
 </body>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('#bookDiv').on('click', 'a[name="btnDel"]', function(){
+			var removeName = $(this).attr('id');
+			
+			$.ajax({
+                url: "/bootstrap/delete.do",
+                type: "GET",
+                dataType: 'jsonp',
+                jsonpCallback: "callback",
+                data:{name:removeName},
+                cache: false,
+                success: function(data) {
+                	if(data.key == "03"){
+                		alert("정상적으로 삭제 되었습니다.");
+                		$('#'+removeName).parent().parent().parent().parent().parent().parent().parent().remove();
+                		
+                	}else{
+                		alert("삭제하는데 오류가 발생하였습니다.");
+                	}
+                },
+                error: function() {
+                    // Fail message
+                	alert("삭제하는데 오류가 발생하였습니다.");
+                },
+            });
+			
+		});
+	});
+</script>
 </html>

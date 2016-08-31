@@ -81,4 +81,10 @@ public class JdbcUserDao extends JdbcDaoSupport implements UserDao{
 		return null;
 	}
 
+	@Override
+	public void delete(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
