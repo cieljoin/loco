@@ -37,7 +37,7 @@ $(function() {
 	                    $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
 	                        .append("</button>");
 	                    $('#success > .alert-success')
-	                        .append("<strong>Your message has been sent. </strong>");
+	                        .append("<strong>방명록이 정상적으로 작성 되었습니다! </strong>");
 	                    $('#success > .alert-success')
 	                        .append('</div>');
 	
@@ -48,7 +48,7 @@ $(function() {
                         $('#success').html("<div class='alert alert-danger'>");
                         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                             .append("</button>");
-                        $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                        $('#success > .alert-danger').append("<strong>죄송합니다 " + firstName + ", 님.. 이미 등록된 이름입니다. 다른 이름으로 등록해주세요!");
                         $('#success > .alert-danger').append('</div>');
                         //clear all fields
                         $('#contactForm').trigger("reset");
@@ -59,7 +59,7 @@ $(function() {
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", This is Server Error!! Please try again later!");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");

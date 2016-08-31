@@ -2,6 +2,8 @@ package net.loco.dao.users;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -71,6 +73,12 @@ public class JdbcUserDao extends JdbcDaoSupport implements UserDao{
 	public void update(User user){
 		String sql = "update USERS set password=?, name=?, email=?, phone=?, message=? where userId = ?";
 		getJdbcTemplate().update(sql, user.getPassword(), user.getName(), user.getEmail(), user.getPhone(), user.getMessage(), user.getUserId() );
+	}
+
+	@Override
+	public List<HashMap<String, String>> selBoardList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -14,6 +14,16 @@
   		(#{name}, #{email}, #{phone}, #{message})
   </insert>
   
+  <select id="selBoardList" resultType="java.util.HashMap">
+  	SELECT
+  		NAME
+  		, EMAIL
+  		, PHONE
+  		, MESSAGE
+  	FROM
+  		BOARD
+  </select>
+  
   <update id="update">
   		update USERS set
   			 password=#{password}

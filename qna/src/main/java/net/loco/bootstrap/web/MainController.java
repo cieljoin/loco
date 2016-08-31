@@ -1,7 +1,9 @@
 package net.loco.bootstrap.web;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -33,6 +35,11 @@ public class MainController {
 	@RequestMapping("/main.do")
 	public String main(Model model) {
 		model.addAttribute("user", new User());
+		
+		List<HashMap<String, String>> selBoardList = new ArrayList<HashMap<String, String>>();
+		selBoardList = userDao.selBoardList();
+		model.addAttribute("board_list", selBoardList);
+		
 		return "/bootstrap/main";
 	}
 	

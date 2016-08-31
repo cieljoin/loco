@@ -48,11 +48,45 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
+                    <h2>방명록</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
+           
+            	<c:forEach var="board_list" items="${board_list}" varStatus="stats">
+            	 <!-- 
+            <h4 class="panel-title">글쓴이　<small>${board_list.NAME}</small></h4>
+							            <h4 class="panel-title">이메일　<small>${board_list.EMAIL }</small></h4>
+							            <h4 class="panel-title">휴대폰　<small>${board_listPHONE }</small></h4>
+							        </div>
+							        <div class="panel-body">
+							            ${board_list.MESSAGE }
+             -->
+            		<div class="col-md-10 wrap_content"><div class="page-header">
+					    <div class="panel panel-info">
+					        <div class="panel-heading">
+					        	<h4 class="panel-title">
+					        		<small> 글쓴이 : ${board_list.NAME} /이메일 : ${board_list.EMAIL} / 휴대폰 : ${board_list.PHONE }</small>
+					        	</h4>
+					        </div>
+					        <div class="panel-body">
+					            ${board_list.MESSAGE }          
+							</div>
+					    </div>
+					</div>
+					
+					<div class="clearfix">
+					    <div class="pull-right">
+					        <span class="btn-group">
+					        	<a href="/board/test/password/w/d/wr_id/306" class="btn btn-danger">삭제</a>
+			            </div>
+					</div>
+		        	</div	>
+	                   
+            	</c:forEach>
+            
+            <!-- 
                 <div class="col-sm-4 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
@@ -112,7 +146,8 @@
                         </div>
                         <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
                     </a>
-                </div>
+                </div> 
+                -->
             </div>
         </div>
     </section> 
@@ -122,7 +157,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2> 방명록 </h2>
+                    <h2> 글쓰기 </h2>
                     <hr class="star-primary">
                 </div>
             </div>

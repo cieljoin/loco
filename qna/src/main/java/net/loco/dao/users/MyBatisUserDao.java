@@ -1,7 +1,8 @@
 package net.loco.dao.users;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -32,4 +33,10 @@ public class MyBatisUserDao implements UserDao {
 	public void update(User user) {
 		sqlSession.update("UserMapper.update", user);
 	}
+	
+	@Override
+	public List<HashMap<String, String>> selBoardList(){
+		return sqlSession.selectList("UserMapper.selBoardList");
+	}
+	
 }
