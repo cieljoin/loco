@@ -92,7 +92,7 @@ public class MainController {
 	
 	
 	
-	@RequestMapping(value="/create.do", method=RequestMethod.POST)
+	@RequestMapping(value="/create.do", method=RequestMethod.GET)
 	public void create(User user, HttpServletRequest req, HttpServletResponse res) throws Exception{
 		Gson gson = new Gson();  // JSON 으로 데이터 편히 만들기위한 Gson
 		Map<String, Object> param = new HashMap<String, Object>(); // return 데이터 저장소
