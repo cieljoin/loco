@@ -24,7 +24,7 @@ $(function() {
             }
             $.ajax({
                 url: "/bootstrap/create.do",
-                type: "POST",
+                type: "GET",
                 dataType: 'jsonp',
                 jsonpCallback: "callback",
                 data:$('#contactForm').serialize(),
