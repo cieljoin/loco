@@ -1,5 +1,7 @@
 package net.loco.dao.users;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
