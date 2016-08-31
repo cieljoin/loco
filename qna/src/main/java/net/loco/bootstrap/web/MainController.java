@@ -99,9 +99,14 @@ public class MainController {
 		
 		
 		log.debug("User : {}", user);
-		userDao.create(user);
-		param.put("key", "03");
-		log.debug("Database : {}", userDao.findById(user.getUserId()));
+		
+		try{
+			userDao.create(user);
+			param.put("key", "03");
+		}catch (Exception e) {
+			param.put("key", "00");
+		}
+		//log.debug("Database : {}", userDao.findById(user.getUserId()));
 
 		String jsonData = gson.toJson(param); // JSON으로 데이터 만들어 줌
 		String output = req.getParameter("callback") + "("+ jsonData +")"; 
