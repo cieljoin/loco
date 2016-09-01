@@ -27,12 +27,13 @@ $(function() {
                 url: "/bootstrap/create.do",
                 type: "GET",
                 dataType: 'jsonp',
+                contentType:"application/x-www-form-urlencoded; charset=UTF-8",
                 jsonpCallback: "callback",
                 data:{
-                	name : encodeURI(name),
-                	email : encodeURI(email),
-                	phone : encodeURI(phone),
-                	message : encodeURI(message)
+                	name : escape(encodeURIComponent(name)),
+                	email : escape(encodeURIComponent(email)),
+                	phone : escape(encodeURIComponent(phone)),
+                	message : escape(encodeURIComponent(message))
                 },
                 cache: false,
                 success: function(data) {

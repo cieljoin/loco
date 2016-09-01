@@ -128,8 +128,10 @@ public class MainController {
 		}catch (Exception e) {
 			param.put("key", "00");
 			param.put("error", e.getMessage());
-			param.put("param_user", user.toString());
 		}
+		
+
+		param.put("param_user", user.toString());
 		//log.debug("Database : {}", userDao.findById(user.getUserId()));
 
 		String jsonData = gson.toJson(param); // JSON으로 데이터 만들어 줌
