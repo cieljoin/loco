@@ -28,7 +28,12 @@ $(function() {
                 type: "GET",
                 dataType: 'jsonp',
                 jsonpCallback: "callback",
-                data:$('#contactForm').serialize(),
+                data:{
+                	name : encodeURI(name),
+                	email : encodeURI(email),
+                	phone : encodeURI(phone),
+                	message : encodeURI(message)
+                },
                 cache: false,
                 success: function(data) {
                 	if(data.key == "03"){
