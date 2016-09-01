@@ -29,13 +29,13 @@ $(function() {
                 dataType: 'jsonp',
                 contentType:"application/x-www-form-urlencoded; charset=UTF-8",
                 jsonpCallback: "callback",
-                data:{
+                data: $('#contactForm').serialize()
                 	//name : escape(encodeURIComponent(name)),
-                	name : escape(encodeURIComponent(name)),
-                	email : email,
-                	phone : escape(encodeURIComponent(phone)),
-                	message : escape(encodeURIComponent(message))
-                },
+//                	name : escape(encodeURIComponent(name)),
+//                	email : email,
+//                	phone : escape(encodeURIComponent(phone)),
+//                	message : escape(encodeURIComponent(message))
+                ,
                 cache: false,
                 success: function(data) {
                 	if(data.key == "03"){
