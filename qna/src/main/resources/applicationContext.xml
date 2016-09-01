@@ -11,18 +11,13 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	<!-- <context:annotation-config /> -->
-	
-<!--
-?useUnicode=true&characterEncoding=UTF8&jdbcCompliantTruncation=false&useOldUTF8Behavior=true 
- p:url="${database.url}"
- -->
- 
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		p:driverClassName="${database.driverClassName}"		
-		p:url="jdbc:mysql://localhost:3306/slipp_dev?useUnicode=true&characterEncoding=UTF8"
+		p:url="jdbc:mysql://localhost:3306/slipp_dev?useUnicode=true&amp;characterEncoding=utf8;"
 		p:username="${database.username}"
 		p:password="${database.password}"
+		
 	/>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
@@ -34,13 +29,5 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	
-	<!-- 
-	<bean id="userDao" class="net.loco.dao.users.JdbcUserDao" 
-		p:dataSource-ref="dataSource" />
-	 -->
-		<!-- 
-	<bean id="userDao" class="net.loco.dao.users.MyBatisUserDao" 
-		p:sqlSession-ref="sqlSession"
-		 /> -->
-
+	
 </beans>
