@@ -112,6 +112,8 @@ public class MainController {
 			param.put("key", "03");
 		}catch (Exception e) {
 			param.put("key", "00");
+			param.put("error", e.getMessage());
+			param.put("param_user", user.toString());
 		}
 		//log.debug("Database : {}", userDao.findById(user.getUserId()));
 
