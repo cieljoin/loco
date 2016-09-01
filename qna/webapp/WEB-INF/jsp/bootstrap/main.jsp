@@ -583,7 +583,7 @@
                 type: "GET",
                 dataType: 'jsonp',
                 jsonpCallback: "callback",
-                data:{name:removeName},
+                data:{name:encodeURIComponent(removeName)},
                 cache: false,
                 success: function(data) {
                 	if(data.key == "03"){

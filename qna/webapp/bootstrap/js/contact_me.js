@@ -22,12 +22,15 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+            var form_val = $('#contactForm').serialize();
+            form_val = decodeURIComponent((form_val + "").replace(/\+/g, "%20"));
+            
             $.ajax({
                 url: "/bootstrap/create.do",
                 type: "GET",
                 dataType: 'jsonp',
                 jsonpCallback: "callback",
-                data:$('#contactForm').serialize(),
+                data:form_val,
                 cache: false,
                 success: function(data) {
                 	if(data.key == "03"){
