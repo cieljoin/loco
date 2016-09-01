@@ -13,12 +13,17 @@
 	
 	<!-- <context:annotation-config /> -->
 	
-
+<!--
+?useUnicode=true&characterEncoding=UTF8&jdbcCompliantTruncation=false&useOldUTF8Behavior=true 
+ p:url="${database.url}"
+ -->
+ 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="${database.driverClassName}"
-		p:url="${database.url}"
+		p:driverClassName="${database.driverClassName}"		
+		p:url="jdbc:mysql://localhost:3306/slipp_dev?useUnicode=true&characterEncoding=UTF8"
 		p:username="${database.username}"
 		p:password="${database.password}"
+		p:
 	/>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
