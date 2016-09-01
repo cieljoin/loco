@@ -30,8 +30,9 @@ $(function() {
                 contentType:"application/x-www-form-urlencoded; charset=UTF-8",
                 jsonpCallback: "callback",
                 data:{
+                	//name : escape(encodeURIComponent(name)),
                 	name : escape(encodeURIComponent(name)),
-                	email : escape(encodeURIComponent(email)),
+                	email : email,
                 	phone : escape(encodeURIComponent(phone)),
                 	message : escape(encodeURIComponent(message))
                 },
