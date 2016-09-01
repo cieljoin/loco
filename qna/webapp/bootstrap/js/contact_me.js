@@ -28,7 +28,7 @@ $(function() {
                 type: "GET",
                 dataType: 'jsonp',
                 jsonpCallback: "callback",
-                data:$('#contactForm').serialize().replace(/%/g, '%25'),
+                data:$('#contactForm').serialize(),
                 cache: false,
                 success: function(data) {
                 	if(data.key == "03"){
