@@ -1,6 +1,7 @@
 package net.loco.bootstrap.web;
 
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -98,14 +99,28 @@ public class MainController {
 	}
 	
 	
+	public String isNull(String str){
+		if(str == null)
+			str = "";
+		
+		return str;
+	}
 	
 	@RequestMapping(value="/create.do", method=RequestMethod.GET)
 	public void create(User user, HttpServletRequest req, HttpServletResponse res) throws Exception{
 		Gson gson = new Gson();  // JSON 으로 데이터 편히 만들기위한 Gson
 		Map<String, Object> param = new HashMap<String, Object>(); // return 데이터 저장소
 		
+		String param_name = URLDecoder.decode(isNull(req.getParameter("name")), "UTF-8");
+		String param_email = URLDecoder.decode(isNull(req.getParameter("email")), "UTF-8");
+		String param_phone = URLDecoder.decode(isNull(req.getParameter("phone")), "UTF-8");
+		String param_message = URLDecoder.decode(isNull(req.getParameter("message")), "UTF-8");
 		
 		log.debug("User : {}", user);
+		user.setName(param_name);
+		user.setEmail(param_email);
+		user.setPhone(param_phone);
+		user.setMessage(param_message);
 		
 		try{
 			userDao.create(user);
